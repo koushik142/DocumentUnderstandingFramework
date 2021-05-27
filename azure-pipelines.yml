@@ -20,7 +20,7 @@ steps:
 
 - task: UiPathDeploy@2
   inputs:
-    #orchestratorConnection: 'UiPath Orchestrator'
-    #packagesPath: 'Main.xaml'
-    #folderName: 'Default'
-    #environments: 'Test'
+    orchestratorConnection: 'TestService'
+    packagesPath: 'Main.xaml'
+    folderName: 'Default'
+    environments: 'Test'
