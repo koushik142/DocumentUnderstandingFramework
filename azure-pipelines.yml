@@ -23,12 +23,12 @@ steps:
   inputs:
     versionType: AutoVersion
     projectJsonPath: '$(Build.SourcesDirectory)\project.json'
-    outputPath: '$(Build.ArtifactStagingDirectory)\Packages\MyFirstProcess'
+    outputPath: '$(Build.SourcesDirectory)'
     outputType: 'Process'
     orchestratorConnection: 'TestService'
 - task: UiPathDeploy@2
   inputs:
     orchestratorConnection: 'TestService'
-    packagesPath: '$(Build.ArtifactStagingDirectory)\Packages\MyFirstProcess'
+    packagesPath: '$(Build.SourcesDirectory)'
     folderName: 'Default'
     environments: 'Test'
