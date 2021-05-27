@@ -18,9 +18,16 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
+- task: UiPathPack@2
+  inputs:
+    versionType: AutoVersion
+    projectJsonPath: '$(Build.SourcesDirectory)\project.json'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Packages\MyFirstProcess'
+    outputType: 'Process'
+    orchestratorConnection: 'TestService'
 - task: UiPathDeploy@2
   inputs:
     orchestratorConnection: 'TestService'
-    packagesPath: 'Main.xaml'
+    packagesPath: '$(Build.ArtifactStagingDirectory)\Packages\MyFirstProcess'
     folderName: 'Default'
     environments: 'Test'
